@@ -44,6 +44,7 @@ void publishData(float p_temperature, float p_humidity) {
   char data[200];
   root.printTo(data, root.measureLength() + 1);
   client.publish(MQTT_SENSOR_TOPIC, data, true);
+  client.publish(MQTT_STATUS_TOPIC, MQTT_STATUS_ON, true);
   client.publish(MQTT_LWT_TOPIC, MQTT_STATUS_OFF, true);
 }
 
